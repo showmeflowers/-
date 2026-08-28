@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2026网易游戏科技大学 - 少年天才班全国统一招生</title>
+    <style>
+        :root {
+            --netease-red: #e60012;
+            --netease-dark-red: #99000a;
+            --bg-dark: #0a0c10;
+            --card-bg: #141822;
+            --card-border: #2a3245;
+            --text-main: #f0f3f9;
+            --text-sub: #8a96a3;
+            --gold: #ffc857;
+            --cyan: #00f0ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding-bottom: 80px;
+            overflow-x: hidden;
+        }
+
+        /* 头部 Banner */
+        .hero {
+            background: linear-gradient(180deg, rgba(230, 0, 18, 0.3) 0%, rgba(10, 12, 16, 1) 100%),
+                        radial-gradient(circle at center, #2c080c 0%, #0a0c10 100%);
+            padding: 30px 20px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+        }
+
+        .badge-official {
+            display: inline-block;
+            background: var(--netease-red);
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(230, 0, 18, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 {
+            font-size: 14px;
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* 倒计时 */
+        .countdown-box {
+            background: rgba(20, 24, 34, 0.8);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .timer-num {
+            background: var(--netease-red);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* 通用卡片容器 */
+        .container {
+            padding: 15px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            border-left: 4px solid var(--netease-red);
+            padding-left: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 突出数据显示网格 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .stat-val {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        .stat-lbl {
+            font-size: 11px;
+            color: var(--text-sub);
+        }
+
+        /* 福利列表 */
+        .welfare-list {
+            list-style: none;
+        }
+
+        .welfare-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .welfare-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: bold;
+        }
+
+        .highlight-text {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* 学院切换 Tabs */
+        .academy-tabs {
+            display: flex;
+            overflow-x: auto;
+            gap: 8px;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            scrollbar-width: none;
+        }
+
+        .academy-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-sub);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--netease-red);
+            border-color: var(--netease-red);
+            color: #fff;
+            box-shadow: 0 0 12px rgba(230, 0, 18, 0.4);
+        }
+
+        /* 学院内容区块 */
+        .academy-content {
+            display: none;
+        }
+
+        .academy-content.active {
+            display: block;
+        }
+
+        .target-box {
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 12px;
+            color: var(--cyan);
+            margin-bottom: 12px;
+        }
+
+        /* 专业折叠项 */
+        .accordion-item {
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .accordion-header {
+            padding: 12px;
+            font-size: 13px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .accordion-header::after {
+            content: "+";
+            font-size: 16px;
+            color: var(--text-sub);
+        }
+
+        .accordion-item.active .accordion-header::after {
+            content: "-";
+            color: var(--netease-red);
+        }
+
+        .accordion-body {
+            display: none;
+            padding: 12px;
+            font-size: 12px;
+            color: var(--text-sub);
+            border-top: 1px solid var(--card-border);
+            background: rgba(0,0,0,0.4);
+        }
+
+        .accordion-item.active .accordion-body {
+            display: block;
+        }
+
+        /* 考核项目 Tag 云 */
+        .exam-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .exam-tag {
+            background: rgba(255, 200, 87, 0.1);
+            border: 1px solid rgba(255, 200, 87, 0.3);
+            color: var(--gold);
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* 底部固定报名 Bar */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(20, 24, 34, 0.95);
+            border-top: 1px solid var(--card-border);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .price-info {
+            font-size: 11px;
+            color: var(--text-sub);
+        }
+
+        .price-info span {
+            font-size: 18px;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .apply-btn {
+            background: linear-gradient(90deg, #e60012 0%, #ff4d4d 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(230, 0, 18, 0.4);
+            cursor: pointer;
+        }
+
+        /* 弹窗 Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--netease-red);
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .modal-card p {
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-bottom: 15px;
+        }
+
+        .modal-close {
+            background: var(--card-border);
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部 Banner -->
+    <div class="hero">
+        <div class="badge-official">网易游戏官方认证招生办</div>
+        <h1>网易少年天才班招生季</h1>
+        <h2>2026网易游戏科技大学全国招生规程</h2>
+        <div class="countdown-box">
+            <span>距离报名截止还剩：</span>
+            <span class="timer-num" id="days">12</span>天
+            <span class="timer-num" id="hours">08</span>时
+            <span class="timer-num" id="mins">45</span>分
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- 招生核心指标 -->
+        <div class="card">
+            <div class="card-title">招生计划与名额</div>
+            <div class="grid-2" style="margin-bottom: 10px;">
+                <div class="stat-box">
+                    <div class="stat-val">50,000人</div>
+                    <div class="stat-lbl">首批海选录取 (50万竞逐)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-val">20,000人</div>
+                    <div class="stat-lbl">二批补录 (20万竞逐)</div>
+                </div>
+            </div>
+            <p style="font-size: 11px; color: var(--text-sub); text-align: center;">
+                *所有考生按学籍年级分组考核，成绩达全国<span class="highlight-text">前 30%</span> 即可优先锁定名额。
+            </p>
+        </div>
+
+        <!-- 硬性门槛与七大校区 -->
+        <div class="card">
+            <div class="card-title">报考门槛与校区分布</div>
+            <ul class="welfare-list">
+                <li><span class="highlight-text">小学生：</span>语文 + 数学两门总分 <strong>＞ 120分</strong> 即可报名。</li>
+                <li><span class="highlight-text">初中生：</span>八门全科总分 <strong>＞ 540分</strong> 即可报名。</li>
+                <li><span class="highlight-text">公办七大校区：</span>杭州、许昌、上海、北京、广州、郑州、哈尔滨。</li>
+                <li><span class="highlight-text">入院规则：</span>单项考核100分，总分超200分即可入院，超300分授“种子少年”称号。</li>
+            </ul>
+        </div>
+
+        <!-- 福利与培养计划 -->
+        <div class="card" style="border-color: rgba(255,200,87,0.4);">
+            <div class="card-title" style="border-color: var(--gold);">七年培养与终身福利</div>
+            <ul class="welfare-list">
+                <li><span class="highlight-text">3年线上 + 4年线下：</span>小学生保留原学籍，周六日每天仅需4小时网课；小学毕业免试直升【网易希望中学】。初中生直接转入天才班。</li>
+                <li><span class="highlight-text">年度津贴：</span>学习补贴 <strong>20,000元/年</strong> + 交通补贴 <strong>3,800元/年</strong>。</li>
+                <li><span class="highlight-text">账号扶持：</span>每周打入 <strong>30元游戏学习基金</strong>（专用买道具、练技术）。</li>
+                <li><span class="highlight-text">全家保障：</span>免费入住专属学区房，学生父母免试入职网易公司。</li>
+                <li><span class="highlight-text">毕业包分配：</span>颁发网易游戏科技大学学士学位，内部通道直升网易正式员工，<span class="highlight-text">年薪40万起</span>！评选“网易少年天才”享百万助学金。</li>
+            </ul>
+        </div>
+
+        <!-- 五大学院 Tab 导航 -->
+        <div style="font-size: 15px; font-weight: bold; margin: 20px 0 10px; color: #fff;">
+            五大学院与专业详解（点击切换）
+        </div>
+
+        <div class="academy-tabs">
+            <button class="tab-btn active" onclick="switchTab(0)">蛋仔派对学院</button>
+            <button class="tab-btn" onclick="switchTab(1)">第五人格学院</button>
+            <button class="tab-btn" onclick="switchTab(2)">永劫无间学院</button>
+            <button class="tab-btn" onclick="switchTab(3)">阴阳师学院</button>
+            <button class="tab-btn" onclick="switchTab(4)">梦幻西游学院</button>
+        </div>
+
+        <!-- 1. 蛋仔派对学院 -->
+        <div class="academy-content active">
+            <div class="card">
+                <div class="card-title">蛋仔派对学院</div>
+                <div class="target-box">
+                    <strong>培养目标：</strong>培养会做地图、做活动、修游戏、测BUG、运营宣传的全能网易蛋仔高级专家！
+                </div>
+                
+                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业（点击展开）：</div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 地图创作专业</div>
+                    <div class="accordion-body">学习搭路、障碍、空气墙、隐藏加速带与弹射板。制作爆款网红地图，毕业直升网易地图设计师。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 视媒宣传专业</div>
+                    <div class="accordion-body">剪辑高光反杀、卡点爆款视频与百万播放标题写法，负责全网蛋仔游戏宣传。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 游戏模式开发专业</div>
+                    <div class="accordion-body">设计全新的跑酷、闯关、对抗模式，未来的蛋仔新玩法全部由本专业学生设计！</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 技术陪玩培养专业</div>
+                    <div class="accordion-body">主修老板心理课与高端带飞技巧，兼具技术与高情商，为网易高端技术陪玩人才。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">5. 活动策划专业</div>
+                    <div class="accordion-body">设计盲盒抽奖概率、返场活动与清空奖池机制，掌控全网蛋仔福利活动。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">6. 游戏维护专业</div>
+                    <div class="accordion-body">负责停服更新、版本迭代、修复BUG与服务器优化，保证亿级玩家稳定运行。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">7. 故障与内容测试专业</div>
+                    <div class="accordion-body">全网最爽专业！专门卡穿墙、卡飞出地图、卡无敌点，发现漏洞即领官方奖金。</div>
+                </div>
+
+                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核（过2项即可）：</div>
+                <div class="exam-tags">
+                    <span class="exam-tag">跑酷能力</span>
+                    <span class="exam-tag">逃出惊魂夜</span>
+                    <span class="exam-tag">揪出捣蛋鬼</span>
+                    <span class="exam-tag">超然竞技场</span>
+                    <span class="exam-tag">巅峰派对</span>
+                    <span class="exam-tag">蛋仔飞车</span>
+                    <span class="exam-tag">铁蛋五项</span>
+                    <span class="exam-tag">蛋仔擂台赛</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 第五人格学院 -->
+        <div class="academy-content">
+            <div class="card">
+                <div class="card-title">第五人格学院</div>
+                <div class="target-box">
+                    <strong>培养目标：</strong>培养精通游戏数据、心理博弈、地图战术、赛事运营的电竞与研发专家！
+                </div>
+                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业：</div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 角色数据分析专业</div>
+                    <div class="accordion-body">精准计算佣兵抗刀、祭司打洞、大心脏触发时间与监管者CD，做全网最强数据分析师。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 地图结构工程专业</div>
+                    <div class="accordion-body">背熟军工厂、圣心医院等全地图无敌点、窗户与卡位，掌握最优溜鬼与转点路线。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 心理学博弈专业</div>
+                    <div class="accordion-body">主修骗走位、压脚印、预判闪现，用极致心理战戏耍对手，电竞选手必修课。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 道具经济学专业</div>
+                    <div class="accordion-body">精算信号枪、护腕、橄榄球牵制时长，把每一个道具用在刀刃上。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">5. 赛事活动策划专业</div>
+                    <div class="accordion-body">设计第五人格赛事规则、精华抽奖与返场活动，掌控官方赛事运营。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">6. 游戏维护优化专业</div>
+                    <div class="accordion-body">负责角色平衡调整、手感优化与技能BUG修复，确保竞技公平性。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">7. 游戏测试与BUG排查</div>
+                    <div class="accordion-body">测试隐藏卡位漏洞与技能异常，发现卡无敌穿墙直接获取高额奖金。</div>
+                </div>
+                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核：</div>
+                <div class="exam-tags">
+                    <span class="exam-tag">监管者速抓</span>
+                    <span class="exam-tag">求生者牵制120s</span>
+                    <span class="exam-tag">地窖点位默写</span>
+                    <span class="exam-tag">角色克制关系</span>
+                    <span class="exam-tag">技能CD速算</span>
+                    <span class="exam-tag">博弈走位</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 永劫无间学院 -->
+        <div class="academy-content">
+            <div class="card">
+                <div class="card-title">永劫无间学院</div>
+                <div class="target-box">
+                    <strong>培养目标：</strong>培养精通冷兵器连招、振刀博弈、飞索操作与地形战术的高级人才！
+                </div>
+                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业：</div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 冷兵器格斗专业</div>
+                    <div class="accordion-body">专精长剑升龙、太刀A闪A百裂斩、阔刀磐石霸体，精确计算攻击帧数与伤害。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 飞索工程学专业</div>
+                    <div class="accordion-body">研究空中变向、后摇取消、超级跳上树与飞索穿墙，掌握全网最帅身法。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 地形战术利用专业</div>
+                    <div class="accordion-body">精通天人城、落日寺高低差卡位、踢人进岩浆与高空偷袭，利用地形百分百制胜。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 魂玉搭配专业</div>
+                    <div class="accordion-body">科学计算攻击、暴击、抗性魂玉收益，打造全英雄伤害与生存最大化套装。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">5. 赛事与平衡维护专业</div>
+                    <div class="accordion-body">负责武道大会赛事设计、宝箱抽奖策划以及武器英雄平衡性调试。</div>
+                </div>
+                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核：</div>
+                <div class="exam-tags">
+                    <span class="exam-tag">0.3秒精准振刀</span>
+                    <span class="exam-tag">三套连招零失误</span>
+                    <span class="exam-tag">百米移动靶射击</span>
+                    <span class="exam-tag">飞索高阶身法</span>
+                    <span class="exam-tag">三人团战配合</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. 阴阳师学院 -->
+        <div class="academy-content">
+            <div class="card">
+                <div class="card-title">阴阳师学院</div>
+                <div class="target-box">
+                    <strong>培养目标：</strong>培养精通抽卡大数据、御魂搭配、斗技战术与结界防守的研发专家！
+                </div>
+                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业：</div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 式神召唤数据分析</div>
+                    <div class="accordion-body">统计SSR/SP出卡概率大数据，分析时段与频道规律，科学提升稀有出卡率。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 御魂配置优化专业</div>
+                    <div class="accordion-body">配出满暴击、高爆伤、超速顶配阿修罗/烬天御魂，打造全网顶级账号。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 结界防守策略专业</div>
+                    <div class="accordion-body">设计无解道馆防守阵容（白藏主/不知火/SP花等），守护结界百分百成功。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 阴阳术与活动策划</div>
+                    <div class="accordion-body">精确计算言灵星/疾风加成，策划超鬼王、绘卷与抽卡活动积分机制。</div>
+                </div>
+                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核：</div>
+                <div class="exam-tags">
+                    <span class="exam-tag">式神鬼火CD默写</span>
+                    <span class="exam-tag">10种御魂效果</span>
+                    <span class="exam-tag">斗技阵容破解</span>
+                    <span class="exam-tag">悬赏封印秒报</span>
+                    <span class="exam-tag">无敌结界搭配</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 梦幻西游学院 -->
+        <div class="academy-content">
+            <div class="card">
+                <div class="card-title">梦幻西游学院</div>
+                <div class="target-box">
+                    <strong>培养目标：</strong>培养精通召唤兽培育、宝石锻造、经济运营与阵法数值的高端策划！
+                </div>
+                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业：</div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 召唤兽培育专业</div>
+                    <div class="accordion-body">精修5+5技能合宠、满资质变异宝宝洗练与高书精准打书，打造全红神兽。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 宝石镶嵌工艺专业</div>
+                    <div class="accordion-body">精算宝石升级概率与失败成本，打造无级别限制装备，锻造零失误。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 游戏经济分析专业</div>
+                    <div class="accordion-body">研究藏宝阁物价与摊位行情，学会低买高卖与30分钟极速跑商掌控经济。</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 阵法与活动策划专业</div>
+                    <div class="accordion-body">背熟天覆/鸟翔等阵法加成克制，优化师门抓鬼流程与节日活动设计。</div>
+                </div>
+                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核：</div>
+                <div class="exam-tags">
+                    <span class="exam-tag">20轮师门极速</span>
+                    <span class="exam-tag">抓鬼效率计算</span>
+                    <span class="exam-tag">12门派克制循环</span>
+                    <span class="exam-tag">手绘跑商路线</span>
+                    <span class="exam-tag">合宠资质预判</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 全套教学视频库 -->
+        <div class="card" style="background: linear-gradient(180deg, #182030 0%, #141822 100%);">
+            <div class="card-title" style="border-color: var(--cyan);">全网专属教学视频体系</div>
+            <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 10px;">
+                所有录取学员均可免费解锁内部专属教学视频库，零基础在家就能学，照着练稳考全国前30%！
+            </p>
+            <ul class="welfare-list">
+                <li><strong style="color:#fff;">通用指南：</strong>天才入学流程、学业平衡技巧、30元基金领取规程。</li>
+                <li><strong style="color:#fff;">学院专属：</strong>蛋仔地图搭设/剪辑、第五心理博弈、永劫0.3s振刀拆解、阴阳师顶配御魂计算、梦幻极速跑商教程。</li>
+                <li><strong style="color:#fff;">考核演示：</strong>所有考核项目均配套满分慢动作示范视频，永久更新免费观看。</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; color: var(--text-sub); font-size: 11px; padding: 20px 0;">
+            网易游戏科技大学招生办公室 版权所有<br>
+            校址：杭州市滨江区网商路599号网易大厦
+        </div>
+
+    </div>
+
+    <!-- 底部固定栏 -->
+    <div class="bottom-bar">
+        <div class="price-info">
+            学费：<span>￥200</span> / 年<br>
+            入学即享：20,000元/年补贴 + 30元/周基金
+        </div>
+        <button class="apply-btn" onclick="openModal()">立即锁定名额</button>
+    </div>
+
+    <!-- 报名交互弹窗 -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-card">
+            <h3>网易少年天才班资格预审</h3>
+            <p>请核对您的入学门槛条件：<br><br>
+            1. 小学生：语数两门总分是否 ＞120分？<br>
+            2. 初中生：八科总分是否 ＞540分？<br>
+            3. 是否能每周六日参加4小时线上特训？</p>
+            <div style="font-size: 11px; color: var(--gold); margin-bottom: 15px;">
+                系统识别：符合2026优先录取条件！
+            </div>
+            <button class="modal-close" onclick="closeModal()">我已确认，交由哥哥/姐姐提交申请</button>
+        </div>
+    </div>
+
+    <script>
+        // 倒计时逻辑
+        function updateCountdown() {
+            const endDate = new Date('2026-09-10T23:59:59').getTime();
+            const now = new Date().getTime();
+            const diff = endDate - now;
+
+            if (diff > 0) {
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+                document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+                document.getElementById('mins').innerText = m < 10 ? '0' + m : m;
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 学院 Tab 切换
+        function switchTab(index) {
+            const btns = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.academy-content');
+            
+            btns.forEach((btn, i) => {
+                if(i === index) {
+                    btn.classList.add('active');
+                    contents[i].classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                    contents[i].classList.remove('active');
+                }
+            });
+        }
+
+        // 折叠面板切换
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            item.classList.toggle('active');
+        }
+
+        // 弹窗逻辑
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
