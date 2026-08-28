@@ -3,125 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026网易游戏科技大学 - 少年天才班全国统一招生</title>
+    <title>2026网易游戏科技大学 - 蛋仔少年班招生</title>
     <style>
+        /* ===== 蛋仔派对卡通配色 ===== */
         :root {
-            --netease-red: #e60012;
-            --netease-dark-red: #99000a;
-            --bg-dark: #0a0c10;
-            --card-bg: #141822;
-            --card-border: #2a3245;
-            --text-main: #f0f3f9;
-            --text-sub: #8a96a3;
-            --gold: #ffc857;
-            --cyan: #00f0ff;
+            --egg-yellow: #FFD93D;
+            --egg-orange: #FF8A1E;
+            --egg-pink: #FF6B8A;
+            --egg-blue: #4ECDC4;
+            --egg-purple: #A78BFA;
+            --egg-bg: #FFF8E7;
+            --egg-card: #FFFFFF;
+            --egg-shadow: #F5D9B3;
+            --egg-text-dark: #4A3728;
+            --egg-text-light: #8B7A6A;
+            --egg-red: #FF4757;
+            --egg-green: #2ED573;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.5;
-            padding-bottom: 80px;
+            background: var(--egg-bg);
+            color: var(--egg-text-dark);
+            line-height: 1.6;
+            padding-bottom: 110px;
             overflow-x: hidden;
         }
 
-        /* 头部 Banner */
+        /* ===== 顶部Banner ===== */
         .hero {
-            background: linear-gradient(180deg, rgba(230, 0, 18, 0.3) 0%, rgba(10, 12, 16, 1) 100%),
-                        radial-gradient(circle at center, #2c080c 0%, #0a0c10 100%);
-            padding: 30px 20px 20px;
+            background: linear-gradient(135deg, #FFD93D 0%, #FF8A1E 50%, #FF6B8A 100%);
+            padding: 30px 20px 25px;
             text-align: center;
-            border-bottom: 1px solid var(--card-border);
+            border-bottom: 6px solid #fff;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "🥚";
+            position: absolute;
+            font-size: 120px;
+            right: -20px;
+            top: -30px;
+            opacity: 0.2;
+            transform: rotate(15deg);
+        }
+
+        .hero::after {
+            content: "🎮";
+            position: absolute;
+            font-size: 80px;
+            left: -10px;
+            bottom: -20px;
+            opacity: 0.15;
         }
 
         .badge-official {
             display: inline-block;
-            background: var(--netease-red);
-            color: #fff;
+            background: #fff;
+            color: var(--egg-orange);
             font-size: 11px;
             font-weight: bold;
-            padding: 3px 10px;
-            border-radius: 12px;
+            padding: 4px 14px;
+            border-radius: 20px;
             letter-spacing: 1px;
             margin-bottom: 10px;
-            box-shadow: 0 0 10px rgba(230, 0, 18, 0.5);
+            box-shadow: 0 4px 15px rgba(255, 138, 30, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 900;
             color: #fff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.15), 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h2 {
-            font-size: 14px;
-            color: var(--cyan);
+            font-size: 15px;
+            color: #fff;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
         }
 
-        /* 倒计时 */
+        .hero-emoji {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
         .countdown-box {
-            background: rgba(20, 24, 34, 0.8);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 10px;
-            display: flex;
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 16px;
+            padding: 10px 16px;
+            display: inline-flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--text-sub);
+            gap: 6px;
+            font-size: 13px;
+            color: #fff;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         .timer-num {
-            background: var(--netease-red);
-            color: #fff;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 14px;
+            background: #fff;
+            color: var(--egg-orange);
+            padding: 2px 10px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            min-width: 32px;
+            display: inline-block;
         }
 
-        /* 通用卡片容器 */
+        /* ===== 通用卡片 ===== */
         .container {
             padding: 15px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            background: var(--egg-card);
+            border-radius: 20px;
+            padding: 18px 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 8px 30px rgba(255, 138, 30, 0.12), 0 2px 8px rgba(0,0,0,0.04);
+            border: 2px solid rgba(255, 217, 61, 0.3);
+            transition: transform 0.1s;
         }
 
         .card-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #fff;
-            border-left: 4px solid var(--netease-red);
-            padding-left: 10px;
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--egg-text-dark);
+            border-left: 5px solid var(--egg-orange);
+            padding-left: 12px;
             margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* 突出数据显示网格 */
+        .card-title .emoji-badge {
+            font-size: 22px;
+        }
+
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -129,57 +178,68 @@
         }
 
         .stat-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            padding: 10px;
+            background: linear-gradient(135deg, #FFF8E7, #FFF0D6);
+            border-radius: 14px;
+            padding: 12px 8px;
             text-align: center;
+            border: 2px dashed var(--egg-yellow);
         }
 
         .stat-val {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--gold);
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--egg-orange);
+        }
+
+        .stat-val .small {
+            font-size: 14px;
         }
 
         .stat-lbl {
             font-size: 11px;
-            color: var(--text-sub);
+            color: var(--egg-text-light);
+            font-weight: 600;
         }
 
-        /* 福利列表 */
         .welfare-list {
             list-style: none;
         }
 
         .welfare-list li {
             position: relative;
-            padding-left: 24px;
+            padding-left: 28px;
             margin-bottom: 8px;
             font-size: 13px;
+            color: var(--egg-text-dark);
         }
 
         .welfare-list li::before {
-            content: "✓";
+            content: "🥚";
             position: absolute;
             left: 0;
-            color: var(--cyan);
-            font-weight: bold;
+            top: -1px;
+            font-size: 16px;
         }
 
         .highlight-text {
-            color: var(--gold);
-            font-weight: bold;
+            color: var(--egg-orange);
+            font-weight: 800;
         }
 
-        /* 学院切换 Tabs */
+        .highlight-pink {
+            color: var(--egg-pink);
+            font-weight: 800;
+        }
+
+        /* ===== Tab 导航 ===== */
         .academy-tabs {
             display: flex;
             overflow-x: auto;
             gap: 8px;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+            padding: 0 0 12px 0;
+            margin-bottom: 4px;
             scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
         }
 
         .academy-tabs::-webkit-scrollbar {
@@ -187,150 +247,375 @@
         }
 
         .tab-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            color: var(--text-sub);
+            background: #fff;
+            border: 2px solid #F0E0D0;
+            color: var(--egg-text-light);
             padding: 8px 16px;
-            border-radius: 20px;
+            border-radius: 30px;
             font-size: 13px;
-            font-weight: bold;
+            font-weight: 700;
             white-space: nowrap;
             cursor: pointer;
             transition: all 0.2s;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
 
         .tab-btn.active {
-            background: var(--netease-red);
-            border-color: var(--netease-red);
+            background: linear-gradient(135deg, #FFD93D, #FF8A1E);
+            border-color: #FF8A1E;
             color: #fff;
-            box-shadow: 0 0 12px rgba(230, 0, 18, 0.4);
+            box-shadow: 0 4px 20px rgba(255, 138, 30, 0.35);
+            transform: scale(1.02);
         }
 
-        /* 学院内容区块 */
+        .tab-btn .tab-emoji {
+            margin-right: 4px;
+        }
+
         .academy-content {
             display: none;
+            animation: fadeUp 0.3s ease;
         }
 
         .academy-content.active {
             display: block;
         }
 
-        .target-box {
-            background: rgba(0, 240, 255, 0.05);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            border-radius: 8px;
-            padding: 10px;
-            font-size: 12px;
-            color: var(--cyan);
-            margin-bottom: 12px;
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 专业折叠项 */
+        .target-box {
+            background: linear-gradient(135deg, #FFF8E7, #FFF3E0);
+            border: 2px solid var(--egg-yellow);
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-size: 13px;
+            color: var(--egg-text-dark);
+            margin-bottom: 14px;
+        }
+
+        .target-box strong {
+            color: var(--egg-orange);
+        }
+
+        /* ===== 专业折叠 ===== */
         .accordion-item {
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            margin-bottom: 8px;
+            border: 2px solid #F0E8E0;
+            border-radius: 14px;
+            margin-bottom: 6px;
             overflow: hidden;
-            background: rgba(0,0,0,0.2);
+            background: #FAF8F5;
+            transition: all 0.2s;
+        }
+
+        .accordion-item.active {
+            border-color: var(--egg-yellow);
+            background: #FFFCF5;
         }
 
         .accordion-header {
-            padding: 12px;
+            padding: 10px 14px;
             font-size: 13px;
-            font-weight: bold;
+            font-weight: 700;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            background: rgba(255,255,255,0.02);
+            color: var(--egg-text-dark);
+            user-select: none;
         }
 
-        .accordion-header::after {
-            content: "+";
-            font-size: 16px;
-            color: var(--text-sub);
+        .accordion-header .arrow {
+            font-size: 14px;
+            color: var(--egg-text-light);
+            transition: transform 0.2s;
         }
 
-        .accordion-item.active .accordion-header::after {
-            content: "-";
-            color: var(--netease-red);
+        .accordion-item.active .accordion-header .arrow {
+            transform: rotate(180deg);
+            color: var(--egg-orange);
         }
 
         .accordion-body {
             display: none;
-            padding: 12px;
+            padding: 0 14px 14px 14px;
             font-size: 12px;
-            color: var(--text-sub);
-            border-top: 1px solid var(--card-border);
-            background: rgba(0,0,0,0.4);
+            color: var(--egg-text-light);
+            border-top: 1px solid #F0E8E0;
+            background: #FFFCF5;
+            line-height: 1.7;
         }
 
         .accordion-item.active .accordion-body {
             display: block;
         }
 
-        /* 考核项目 Tag 云 */
-        .exam-tags {
+        /* ===== 考核项目 ===== */
+        .exam-section {
+            margin-top: 14px;
+            background: linear-gradient(135deg, #FFF0E6, #FFE8D6);
+            border-radius: 16px;
+            padding: 14px 14px 10px 14px;
+            border: 3px solid var(--egg-orange);
+        }
+
+        .exam-section .exam-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--egg-orange);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .exam-section .exam-title .big-emoji {
+            font-size: 24px;
+        }
+
+        .exam-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .exam-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 10px 10px 8px 10px;
+            border: 2px solid rgba(255, 138, 30, 0.2);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .exam-item .exam-name {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--egg-text-dark);
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
+            align-items: center;
+            gap: 4px;
         }
 
-        .exam-tag {
-            background: rgba(255, 200, 87, 0.1);
-            border: 1px solid rgba(255, 200, 87, 0.3);
-            color: var(--gold);
+        .exam-item .exam-name .icon {
+            font-size: 16px;
+        }
+
+        .exam-item .exam-detail {
             font-size: 11px;
-            padding: 4px 8px;
-            border-radius: 4px;
+            color: var(--egg-text-light);
+            margin-top: 4px;
+            line-height: 1.5;
         }
 
-        /* 底部固定报名 Bar */
+        .exam-item .exam-detail .tag {
+            display: inline-block;
+            background: var(--egg-yellow);
+            color: var(--egg-text-dark);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 1px 8px;
+            border-radius: 10px;
+            margin: 1px 2px 1px 0;
+        }
+
+        .exam-item .exam-detail .tag-pink {
+            background: #FFD0D8;
+            color: var(--egg-pink);
+        }
+
+        .exam-item .exam-detail .tag-blue {
+            background: #D0F0EC;
+            color: #2EA89E;
+        }
+
+        .exam-item .exam-detail .tag-purple {
+            background: #E8DDFF;
+            color: #7C6BC4;
+        }
+
+        /* ===== 底部链接区域 ===== */
+        .link-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 18px 16px 14px 16px;
+            margin-bottom: 14px;
+            border: 2px solid rgba(255, 217, 61, 0.3);
+            box-shadow: 0 8px 30px rgba(255, 138, 30, 0.08);
+        }
+
+        .link-section .link-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--egg-text-dark);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .link-section .link-title .icon {
+            font-size: 20px;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .link-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FFF8E7, #FFF0D6);
+            border-radius: 14px;
+            padding: 12px 6px;
+            text-decoration: none;
+            border: 2px solid rgba(255, 217, 61, 0.3);
+            transition: all 0.2s;
+            min-height: 56px;
+            text-align: center;
+        }
+
+        .link-btn:active {
+            transform: scale(0.95);
+        }
+
+        .link-btn .link-emoji {
+            font-size: 22px;
+            display: block;
+        }
+
+        .link-btn .link-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--egg-text-dark);
+            margin-top: 2px;
+        }
+
+        .link-btn .link-badge {
+            font-size: 9px;
+            background: var(--egg-red);
+            color: #fff;
+            padding: 1px 8px;
+            border-radius: 10px;
+            margin-top: 2px;
+        }
+
+        .link-btn .link-badge.green {
+            background: var(--egg-green);
+        }
+
+        .link-btn .link-badge.gray {
+            background: #ccc;
+            color: #666;
+        }
+
+        .link-btn.disabled {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .link-btn.disabled .link-badge {
+            background: #ccc;
+            color: #666;
+        }
+
+        /* ===== 招生老师信息 ===== */
+        .teacher-section {
+            background: linear-gradient(135deg, #FFF8E7, #FFEED9);
+            border-radius: 20px;
+            padding: 16px;
+            margin-bottom: 14px;
+            border: 2px solid var(--egg-yellow);
+            text-align: center;
+        }
+
+        .teacher-section .teacher-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--egg-text-dark);
+            margin-bottom: 8px;
+        }
+
+        .teacher-section .teacher-item {
+            font-size: 14px;
+            color: var(--egg-text-dark);
+            padding: 4px 0;
+        }
+
+        .teacher-section .teacher-item .phone {
+            color: var(--egg-orange);
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .teacher-section .teacher-item .label {
+            color: var(--egg-text-light);
+            font-weight: 600;
+        }
+
+        /* ===== 底部固定栏 ===== */
         .bottom-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(20, 24, 34, 0.95);
-            border-top: 1px solid var(--card-border);
-            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 3px solid var(--egg-yellow);
+            padding: 12px 16px 16px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(10px);
             z-index: 100;
+            box-shadow: 0 -4px 30px rgba(255, 138, 30, 0.15);
         }
 
         .price-info {
-            font-size: 11px;
-            color: var(--text-sub);
+            font-size: 12px;
+            color: var(--egg-text-light);
+            font-weight: 600;
         }
 
-        .price-info span {
-            font-size: 18px;
-            color: var(--gold);
-            font-weight: bold;
+        .price-info .big-price {
+            font-size: 26px;
+            color: var(--egg-red);
+            font-weight: 900;
+        }
+
+        .price-info .sub {
+            font-size: 11px;
+            color: var(--egg-text-light);
+            font-weight: 400;
         }
 
         .apply-btn {
-            background: linear-gradient(90deg, #e60012 0%, #ff4d4d 100%);
+            background: linear-gradient(135deg, #FFD93D, #FF8A1E);
             color: #fff;
             border: none;
-            padding: 10px 24px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 4px 15px rgba(230, 0, 18, 0.4);
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 6px 25px rgba(255, 138, 30, 0.4);
             cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
         }
 
-        /* 弹窗 Modal */
+        .apply-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== 弹窗 ===== */
         .modal-overlay {
             display: none;
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -338,46 +623,145 @@
         }
 
         .modal-card {
-            background: var(--card-bg);
-            border: 1px solid var(--netease-red);
-            border-radius: 12px;
-            padding: 20px;
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px 20px 20px 20px;
             width: 100%;
-            max-width: 320px;
+            max-width: 340px;
             text-align: center;
-            position: relative;
+            border: 4px solid var(--egg-yellow);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-card .modal-emoji {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 6px;
         }
 
         .modal-card h3 {
-            color: #fff;
-            margin-bottom: 10px;
+            color: var(--egg-text-dark);
+            font-size: 18px;
+            margin-bottom: 8px;
         }
 
         .modal-card p {
-            font-size: 12px;
-            color: var(--text-sub);
-            margin-bottom: 15px;
+            font-size: 13px;
+            color: var(--egg-text-light);
+            margin-bottom: 14px;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .modal-card .gold-text {
+            color: var(--egg-orange);
+            font-weight: 700;
+            font-size: 14px;
         }
 
         .modal-close {
-            background: var(--card-border);
+            background: linear-gradient(135deg, #FFD93D, #FF8A1E);
             color: #fff;
             border: none;
-            padding: 8px 20px;
-            border-radius: 15px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* ===== 脚注 ===== */
+        .footer-note {
+            text-align: center;
+            color: var(--egg-text-light);
+            font-size: 11px;
+            padding: 16px 0 8px 0;
+            border-top: 2px dashed #F0E0D0;
+            margin-top: 4px;
+        }
+
+        .footer-note .egg-icon {
+            font-size: 14px;
+        }
+
+        /* ===== 网络错误弹窗 ===== */
+        .error-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .error-modal .error-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 30px 24px 24px 24px;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+            border: 4px solid #FF6B6B;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .error-modal .error-card .error-emoji {
+            font-size: 56px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .error-modal .error-card h3 {
+            color: var(--egg-text-dark);
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .error-modal .error-card p {
+            font-size: 13px;
+            color: var(--egg-text-light);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .error-modal .error-card .error-code {
             font-size: 12px;
+            color: #999;
+            font-family: monospace;
+            background: #f5f5f5;
+            padding: 4px 12px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        .error-modal .error-close {
+            background: #FF6B6B;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部 Banner -->
+    <!-- ===== 顶部Banner ===== -->
     <div class="hero">
-        <div class="badge-official">网易游戏官方认证招生办</div>
-        <h1>网易少年天才班招生季</h1>
-        <h2>2026网易游戏科技大学全国招生规程</h2>
+        <span class="hero-emoji">🎮🥚🎮</span>
+        <div class="badge-official">⭐ 网易游戏官方认证 · 少年天才班 ⭐</div>
+        <h1>蛋仔派对 · 少年班</h1>
+        <h2>2026 网易游戏科技大学 全国招生</h2>
         <div class="countdown-box">
-            <span>距离报名截止还剩：</span>
+            <span>⏳ 报名倒计时</span>
             <span class="timer-num" id="days">12</span>天
             <span class="timer-num" id="hours">08</span>时
             <span class="timer-num" id="mins">45</span>分
@@ -386,315 +770,489 @@
 
     <div class="container">
 
-        <!-- 招生核心指标 -->
+        <!-- ===== 招生核心指标 ===== -->
         <div class="card">
-            <div class="card-title">招生计划与名额</div>
-            <div class="grid-2" style="margin-bottom: 10px;">
+            <div class="card-title">
+                🎯 招生计划与名额
+                <span class="emoji-badge">📊</span>
+            </div>
+            <div class="grid-2">
                 <div class="stat-box">
-                    <div class="stat-val">50,000人</div>
-                    <div class="stat-lbl">首批海选录取 (50万竞逐)</div>
+                    <div class="stat-val">50,000 <span class="small">人</span></div>
+                    <div class="stat-lbl">首批录取 · 50万人竞逐</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-val">20,000人</div>
-                    <div class="stat-lbl">二批补录 (20万竞逐)</div>
+                    <div class="stat-val">20,000 <span class="small">人</span></div>
+                    <div class="stat-lbl">二批候补 · 20万人竞逐</div>
                 </div>
             </div>
-            <p style="font-size: 11px; color: var(--text-sub); text-align: center;">
-                *所有考生按学籍年级分组考核，成绩达全国<span class="highlight-text">前 30%</span> 即可优先锁定名额。
+            <p style="font-size: 12px; color: var(--egg-text-light); text-align: center; margin-top: 8px;">
+                🏆 按年级分组考核，成绩达全国 <span class="highlight-text">前 30%</span> 优先录取
             </p>
         </div>
 
-        <!-- 硬性门槛与七大校区 -->
+        <!-- ===== 报考门槛 ===== -->
         <div class="card">
-            <div class="card-title">报考门槛与校区分布</div>
+            <div class="card-title">
+                📋 报考门槛
+                <span class="emoji-badge">✏️</span>
+            </div>
             <ul class="welfare-list">
-                <li><span class="highlight-text">小学生：</span>语文 + 数学两门总分 <strong>＞ 120分</strong> 即可报名。</li>
-                <li><span class="highlight-text">初中生：</span>八门全科总分 <strong>＞ 540分</strong> 即可报名。</li>
-                <li><span class="highlight-text">公办七大校区：</span>杭州、许昌、上海、北京、广州、郑州、哈尔滨。</li>
-                <li><span class="highlight-text">入院规则：</span>单项考核100分，总分超200分即可入院，超300分授“种子少年”称号。</li>
+                <li><span class="highlight-text">🧒 小学生：</span>语文 + 数学两门总分 <strong>＞ 120分</strong></li>
+                <li><span class="highlight-text">🧑 初中生：</span>八门全科总分 <strong>＞ 540分</strong></li>
+                <li><span class="highlight-text">🏫 七大校区：</span>杭州 · 许昌 · 上海 · 北京 · 广州 · 郑州 · 哈尔滨</li>
+                <li><span class="highlight-text">🎖️ 入院规则：</span>考核100分/项，<strong>过2项</strong>即录取，过3项授 <span class="highlight-pink">「种子少年」</span> 称号</li>
             </ul>
         </div>
 
-        <!-- 福利与培养计划 -->
-        <div class="card" style="border-color: rgba(255,200,87,0.4);">
-            <div class="card-title" style="border-color: var(--gold);">七年培养与终身福利</div>
+        <!-- ===== 福利与培养 ===== -->
+        <div class="card" style="border-color: var(--egg-orange);">
+            <div class="card-title" style="border-color: var(--egg-orange);">
+                🎁 七年培养 · 终身福利
+                <span class="emoji-badge">💎</span>
+            </div>
             <ul class="welfare-list">
-                <li><span class="highlight-text">3年线上 + 4年线下：</span>小学生保留原学籍，周六日每天仅需4小时网课；小学毕业免试直升【网易希望中学】。初中生直接转入天才班。</li>
-                <li><span class="highlight-text">年度津贴：</span>学习补贴 <strong>20,000元/年</strong> + 交通补贴 <strong>3,800元/年</strong>。</li>
-                <li><span class="highlight-text">账号扶持：</span>每周打入 <strong>30元游戏学习基金</strong>（专用买道具、练技术）。</li>
-                <li><span class="highlight-text">全家保障：</span>免费入住专属学区房，学生父母免试入职网易公司。</li>
-                <li><span class="highlight-text">毕业包分配：</span>颁发网易游戏科技大学学士学位，内部通道直升网易正式员工，<span class="highlight-text">年薪40万起</span>！评选“网易少年天才”享百万助学金。</li>
+                <li><span class="highlight-text">📚 3年线上 + 4年线下：</span>小学生保留原学籍，周六日每天仅需 <strong>4小时</strong> 网课；小学毕业直升「网易希望中学」。初中生直接转入天才班。</li>
+                <li><span class="highlight-text">💰 年度津贴：</span>学习补贴 <strong>20,000元/年</strong> + 交通补贴 <strong>3,800元/年</strong></li>
+                <li><span class="highlight-text">🎮 账号扶持：</span>每周打入 <strong>30元</strong> 游戏学习基金（买道具、练技术专用）</li>
+                <li><span class="highlight-text">🏠 全家保障：</span>免费入住学区房，父母免试入职网易公司</li>
+                <li><span class="highlight-text">🚀 毕业包分配：</span>网易游戏科技大学学士学位，内部通道直升网易正式员工，<span class="highlight-text">年薪 40万 起</span>！评选「网易少年天才」享百万助学金</li>
             </ul>
         </div>
 
-        <!-- 五大学院 Tab 导航 -->
-        <div style="font-size: 15px; font-weight: bold; margin: 20px 0 10px; color: #fff;">
-            五大学院与专业详解（点击切换）
+        <!-- ===== 五大学院 Tab ===== -->
+        <div style="font-size: 16px; font-weight: 800; margin: 20px 0 10px; color: var(--egg-text-dark); display: flex; align-items: center; gap: 8px;">
+            <span>🏛️</span> 五大学院 · 点击切换
         </div>
 
         <div class="academy-tabs">
-            <button class="tab-btn active" onclick="switchTab(0)">蛋仔派对学院</button>
-            <button class="tab-btn" onclick="switchTab(1)">第五人格学院</button>
-            <button class="tab-btn" onclick="switchTab(2)">永劫无间学院</button>
-            <button class="tab-btn" onclick="switchTab(3)">阴阳师学院</button>
-            <button class="tab-btn" onclick="switchTab(4)">梦幻西游学院</button>
+            <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-emoji">🥚</span>蛋仔派对</button>
+            <button class="tab-btn" onclick="switchTab(1)"><span class="tab-emoji">🕵️</span>第五人格</button>
+            <button class="tab-btn" onclick="switchTab(2)"><span class="tab-emoji">⚔️</span>永劫无间</button>
+            <button class="tab-btn" onclick="switchTab(3)"><span class="tab-emoji">🦊</span>阴阳师</button>
+            <button class="tab-btn" onclick="switchTab(4)"><span class="tab-emoji">🐉</span>梦幻西游</button>
         </div>
 
-        <!-- 1. 蛋仔派对学院 -->
+        <!-- ===== 1. 蛋仔派对学院 ===== -->
         <div class="academy-content active">
             <div class="card">
-                <div class="card-title">蛋仔派对学院</div>
+                <div class="card-title">
+                    🥚 蛋仔派对学院
+                    <span class="emoji-badge">🎪</span>
+                </div>
                 <div class="target-box">
-                    <strong>培养目标：</strong>培养会做地图、做活动、修游戏、测BUG、运营宣传的全能网易蛋仔高级专家！
+                    <strong>🎯 培养目标：</strong>培养会做地图、做活动、修游戏、测BUG、做宣传的全能蛋仔高级专家！毕业即进网易游戏，年薪40万起步！
                 </div>
-                
-                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业（点击展开）：</div>
+
+                <div style="font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--egg-text-dark);">
+                    📖 七大核心专业（点击展开详情）
+                </div>
+
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 地图创作专业</div>
-                    <div class="accordion-body">学习搭路、障碍、空气墙、隐藏加速带与弹射板。制作爆款网红地图，毕业直升网易地图设计师。</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        1. 地图创作专业 <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">学习搭路、障碍、空气墙、隐藏加速带与弹射板。制作爆款网红地图，毕业直升网易地图设计师！</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 视媒宣传专业</div>
-                    <div class="accordion-body">剪辑高光反杀、卡点爆款视频与百万播放标题写法，负责全网蛋仔游戏宣传。</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        2. 视媒宣传专业 <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">剪辑高光反杀、卡点爆款视频，学习百万播放标题写法，负责全网蛋仔游戏宣传运营。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 游戏模式开发专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        3. 游戏模式开发专业 <span class="arrow">▼</span>
+                    </div>
                     <div class="accordion-body">设计全新的跑酷、闯关、对抗模式，未来的蛋仔新玩法全部由本专业学生设计！</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 技术陪玩培养专业</div>
-                    <div class="accordion-body">主修老板心理课与高端带飞技巧，兼具技术与高情商，为网易高端技术陪玩人才。</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        4. 技术陪玩培养专业 <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">主修老板心理课 + 高端带飞技巧，兼具技术与高情商，培养网易顶级技术陪玩人才。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">5. 活动策划专业</div>
-                    <div class="accordion-body">设计盲盒抽奖概率、返场活动与清空奖池机制，掌控全网蛋仔福利活动。</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        5. 活动策划专业 <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">设计盲盒抽奖概率、返场活动与清空奖池机制，掌控全网蛋仔福利活动策划。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">6. 游戏维护专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        6. 游戏维护专业 <span class="arrow">▼</span>
+                    </div>
                     <div class="accordion-body">负责停服更新、版本迭代、修复BUG与服务器优化，保证亿级玩家稳定运行。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">7. 故障与内容测试专业</div>
-                    <div class="accordion-body">全网最爽专业！专门卡穿墙、卡飞出地图、卡无敌点，发现漏洞即领官方奖金。</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        7. 故障与内容测试专业 <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">全网最爽专业！专门卡穿墙、卡飞出地图、卡无敌点，发现漏洞即领官方奖金！</div>
                 </div>
 
-                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核（过2项即可）：</div>
-                <div class="exam-tags">
-                    <span class="exam-tag">跑酷能力</span>
-                    <span class="exam-tag">逃出惊魂夜</span>
-                    <span class="exam-tag">揪出捣蛋鬼</span>
-                    <span class="exam-tag">超然竞技场</span>
-                    <span class="exam-tag">巅峰派对</span>
-                    <span class="exam-tag">蛋仔飞车</span>
-                    <span class="exam-tag">铁蛋五项</span>
-                    <span class="exam-tag">蛋仔擂台赛</span>
+                <div class="exam-section">
+                    <div class="exam-title">
+                        <span class="big-emoji">🏅</span> 入院必考 · 八项考核 <span class="big-emoji">🏅</span>
+                        <div style="font-size: 12px; font-weight: 600; color: var(--egg-text-light); margin-top: 2px;">通过 <span class="highlight-text">任意 2 项</span> 即可录取！</div>
+                    </div>
+
+                    <div class="exam-grid">
+                        <div class="exam-item">
+                            <div class="exam-name"><span class="icon">🏃</span> 跑酷能力</div>
+                            <div class="exam-detail">
+                                <span class="tag">滚停</span><span class="tag">卡杆子</span><br>
+                                <span class="tag">滑墙</span><span class="tag">惯性复位</span><br>
+                                <span class="tag tag-pink">轮盘加速</span>
+                                <div style="margin-top: 3px; font-size: 10px; color: #bbb;">下坡急停 · 滑梯卡住 · 墙面横移</div>
+                            </div>
+                        </div>
+
+                        <div class="exam-item">
+                            <div class="exam-name"><span class="icon">👻</span> 逃出惊魂夜</div>
+                            <div class="exam-detail">
+                                <span class="tag">技能纸面</span><span class="tag">阵容理解</span><br>
+                                <span class="tag">煤矿校准</span><span class="tag tag-blue">出生点位</span>
+                                <div style="margin-top: 3px; font-size: 10px; color: #bbb;">役鸟CD · 双维修师 · 听声辨位</div>
+                            </div>
+                        </div>
+
+                        <div class="exam-item">
+                            <div class="exam-name"><span class="icon">🕵️</span> 揪出捣蛋鬼</div>
+                            <div class="exam-detail">
+                                <span class="tag">地图默写</span><span class="tag tag-purple">对跳辨别</span><br>
+                                <span class="tag tag-pink">刀人冷却</span>
+                                <div style="margin-top: 3px; font-size: 10px; color: #bbb;">惊魂工厂管道 · 3分钟逻辑复盘</div>
+                            </div>
+                        </div>
+
+                        <div class="exam-item">
+                            <div class="exam-name"><span class="icon">⚡</span> 超然竞技场</div>
+                            <div class="exam-detail">
+                                <span class="tag">刷新记点</span><span class="tag">盾反时机</span><br>
+                                <span class="tag tag-blue">残血反杀</span>
+                                <div style="margin-top: 3px; font-size: 10px; color: #bbb;">武器箱秒数 · 举盾破防 · 技能CD</div>
+                            </div>
+                        </div>
+
+                        <div class="exam-item">
+                            <div class="exam-name"><span class="icon">🎉</span> 巅峰派对</div>
+                            <div class="exam-detail">
+                                <span class="tag">双刀测试</span><span class="tag">身法测试</span><br>
+                                <span class="tag">道具三连</span><span class="tag tag-pink">超级起步</span>
+                                <div style="margin-top: 3px; font-size: 10px; color: #bbb;">双道具连击 · 连续跳跃 · 叠罗汉</div>
+                            </div>
+                        </div>
+
+                        <div class="exam-item">
+                            <div class="exam-name"><span class="icon">🏎️</span> 蛋仔飞车</div>
+                            <div class="exam-detail">
+                                <span class="tag">车身平衡</span><span class="tag">空转测试</span><br>
+                                <span class="tag">漂移测试</span><span class="tag tag-blue">短道速记</span>
+                                <div style="margin-top: 3px; font-size: 10px; color: #bbb;">腾空调头 · 空中转圈 · 近道点位</div>
+                            </div>
+                        </div>
+
+                        <div class="exam-item">
+                            <div class="exam-name"><span class="icon">🏋️</span> 铁蛋五项</div>
+                            <div class="exam-detail">
+                                <span class="tag tag-pink">换武器手速</span><br>
+                                <span class="tag tag-purple">跳扑取消后摇</span>
+                                <div style="margin-top: 3px; font-size: 10px; color: #bbb;">五项全能 · 反应速度大考验</div>
+                            </div>
+                        </div>
+
+                        <div class="exam-item">
+                            <div class="exam-name"><span class="icon">🥊</span> 蛋仔擂台赛</div>
+                            <div class="exam-detail">
+                                <span class="tag">单挑测试</span><span class="tag tag-blue">一对多身法</span>
+                                <div style="margin-top: 3px; font-size: 10px; color: #bbb;">1v1三局两胜 · 1v4撑90秒</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 10px; font-size: 11px; color: var(--egg-text-light); background: rgba(255,255,255,0.6); border-radius: 10px; padding: 6px;">
+                        💡 每个项目总分 100 分，通过 2 项即可入院，通过 3 项授予 <strong style="color: var(--egg-orange);">「种子少年」</strong> 荣誉称号！
+                    </div>
                 </div>
+
             </div>
         </div>
 
-        <!-- 2. 第五人格学院 -->
+        <!-- ===== 2. 第五人格学院 ===== -->
         <div class="academy-content">
             <div class="card">
-                <div class="card-title">第五人格学院</div>
+                <div class="card-title">🕵️ 第五人格学院</div>
                 <div class="target-box">
-                    <strong>培养目标：</strong>培养精通游戏数据、心理博弈、地图战术、赛事运营的电竞与研发专家！
+                    <strong>🎯 培养目标：</strong>培养精通游戏数据、心理博弈、地图战术、赛事运营的电竞与研发专家！
                 </div>
-                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业：</div>
+                <div style="font-size: 13px; font-weight: 700; margin-bottom: 8px;">📖 七大核心专业：</div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 角色数据分析专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 角色数据分析 <span class="arrow">▼</span></div>
                     <div class="accordion-body">精准计算佣兵抗刀、祭司打洞、大心脏触发时间与监管者CD，做全网最强数据分析师。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 地图结构工程专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 地图结构工程 <span class="arrow">▼</span></div>
                     <div class="accordion-body">背熟军工厂、圣心医院等全地图无敌点、窗户与卡位，掌握最优溜鬼与转点路线。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 心理学博弈专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 心理学博弈 <span class="arrow">▼</span></div>
                     <div class="accordion-body">主修骗走位、压脚印、预判闪现，用极致心理战戏耍对手，电竞选手必修课。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 道具经济学专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 道具经济学 <span class="arrow">▼</span></div>
                     <div class="accordion-body">精算信号枪、护腕、橄榄球牵制时长，把每一个道具用在刀刃上。</div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">5. 赛事活动策划专业</div>
-                    <div class="accordion-body">设计第五人格赛事规则、精华抽奖与返场活动，掌控官方赛事运营。</div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">6. 游戏维护优化专业</div>
-                    <div class="accordion-body">负责角色平衡调整、手感优化与技能BUG修复，确保竞技公平性。</div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">7. 游戏测试与BUG排查</div>
-                    <div class="accordion-body">测试隐藏卡位漏洞与技能异常，发现卡无敌穿墙直接获取高额奖金。</div>
-                </div>
-                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核：</div>
-                <div class="exam-tags">
-                    <span class="exam-tag">监管者速抓</span>
-                    <span class="exam-tag">求生者牵制120s</span>
-                    <span class="exam-tag">地窖点位默写</span>
-                    <span class="exam-tag">角色克制关系</span>
-                    <span class="exam-tag">技能CD速算</span>
-                    <span class="exam-tag">博弈走位</span>
+                <div class="exam-section" style="margin-top: 14px;">
+                    <div class="exam-title" style="font-size: 14px;">🏅 入院必考考核</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;">
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">监管者速抓</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">牵制120秒</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">地窖点位默写</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">角色克制关系</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">技能CD速算</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 3. 永劫无间学院 -->
+        <!-- ===== 3. 永劫无间学院 ===== -->
         <div class="academy-content">
             <div class="card">
-                <div class="card-title">永劫无间学院</div>
+                <div class="card-title">⚔️ 永劫无间学院</div>
                 <div class="target-box">
-                    <strong>培养目标：</strong>培养精通冷兵器连招、振刀博弈、飞索操作与地形战术的高级人才！
+                    <strong>🎯 培养目标：</strong>培养精通冷兵器连招、振刀博弈、飞索操作与地形战术的高级人才！
                 </div>
-                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业：</div>
+                <div style="font-size: 13px; font-weight: 700; margin-bottom: 8px;">📖 核心专业：</div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 冷兵器格斗专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 冷兵器格斗 <span class="arrow">▼</span></div>
                     <div class="accordion-body">专精长剑升龙、太刀A闪A百裂斩、阔刀磐石霸体，精确计算攻击帧数与伤害。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 飞索工程学专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 飞索工程学 <span class="arrow">▼</span></div>
                     <div class="accordion-body">研究空中变向、后摇取消、超级跳上树与飞索穿墙，掌握全网最帅身法。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 地形战术利用专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 地形战术 <span class="arrow">▼</span></div>
                     <div class="accordion-body">精通天人城、落日寺高低差卡位、踢人进岩浆与高空偷袭，利用地形百分百制胜。</div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 魂玉搭配专业</div>
-                    <div class="accordion-body">科学计算攻击、暴击、抗性魂玉收益，打造全英雄伤害与生存最大化套装。</div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">5. 赛事与平衡维护专业</div>
-                    <div class="accordion-body">负责武道大会赛事设计、宝箱抽奖策划以及武器英雄平衡性调试。</div>
-                </div>
-                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核：</div>
-                <div class="exam-tags">
-                    <span class="exam-tag">0.3秒精准振刀</span>
-                    <span class="exam-tag">三套连招零失误</span>
-                    <span class="exam-tag">百米移动靶射击</span>
-                    <span class="exam-tag">飞索高阶身法</span>
-                    <span class="exam-tag">三人团战配合</span>
+                <div class="exam-section" style="margin-top: 14px;">
+                    <div class="exam-title" style="font-size: 14px;">🏅 入院必考考核</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;">
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">0.3秒精准振刀</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">三套连招零失误</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">百米移动靶射击</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">飞索高阶身法</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 4. 阴阳师学院 -->
+        <!-- ===== 4. 阴阳师学院 ===== -->
         <div class="academy-content">
             <div class="card">
-                <div class="card-title">阴阳师学院</div>
+                <div class="card-title">🦊 阴阳师学院</div>
                 <div class="target-box">
-                    <strong>培养目标：</strong>培养精通抽卡大数据、御魂搭配、斗技战术与结界防守的研发专家！
+                    <strong>🎯 培养目标：</strong>培养精通抽卡大数据、御魂搭配、斗技战术与结界防守的研发专家！
                 </div>
-                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业：</div>
+                <div style="font-size: 13px; font-weight: 700; margin-bottom: 8px;">📖 核心专业：</div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 式神召唤数据分析</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 抽卡数据分析 <span class="arrow">▼</span></div>
                     <div class="accordion-body">统计SSR/SP出卡概率大数据，分析时段与频道规律，科学提升稀有出卡率。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 御魂配置优化专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 御魂配置优化 <span class="arrow">▼</span></div>
                     <div class="accordion-body">配出满暴击、高爆伤、超速顶配阿修罗/烬天御魂，打造全网顶级账号。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 结界防守策略专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 结界防守策略 <span class="arrow">▼</span></div>
                     <div class="accordion-body">设计无解道馆防守阵容（白藏主/不知火/SP花等），守护结界百分百成功。</div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 阴阳术与活动策划</div>
-                    <div class="accordion-body">精确计算言灵星/疾风加成，策划超鬼王、绘卷与抽卡活动积分机制。</div>
-                </div>
-                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核：</div>
-                <div class="exam-tags">
-                    <span class="exam-tag">式神鬼火CD默写</span>
-                    <span class="exam-tag">10种御魂效果</span>
-                    <span class="exam-tag">斗技阵容破解</span>
-                    <span class="exam-tag">悬赏封印秒报</span>
-                    <span class="exam-tag">无敌结界搭配</span>
+                <div class="exam-section" style="margin-top: 14px;">
+                    <div class="exam-title" style="font-size: 14px;">🏅 入院必考考核</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;">
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">式神鬼火CD默写</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">10种御魂效果</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">斗技阵容破解</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">悬赏封印秒报</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 5. 梦幻西游学院 -->
+        <!-- ===== 5. 梦幻西游学院 ===== -->
         <div class="academy-content">
             <div class="card">
-                <div class="card-title">梦幻西游学院</div>
+                <div class="card-title">🐉 梦幻西游学院</div>
                 <div class="target-box">
-                    <strong>培养目标：</strong>培养精通召唤兽培育、宝石锻造、经济运营与阵法数值的高端策划！
+                    <strong>🎯 培养目标：</strong>培养精通召唤兽培育、宝石锻造、经济运营与阵法数值的高端策划！
                 </div>
-                <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">七大核心专业：</div>
+                <div style="font-size: 13px; font-weight: 700; margin-bottom: 8px;">📖 核心专业：</div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 召唤兽培育专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">1. 召唤兽培育 <span class="arrow">▼</span></div>
                     <div class="accordion-body">精修5+5技能合宠、满资质变异宝宝洗练与高书精准打书，打造全红神兽。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 宝石镶嵌工艺专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">2. 宝石镶嵌工艺 <span class="arrow">▼</span></div>
                     <div class="accordion-body">精算宝石升级概率与失败成本，打造无级别限制装备，锻造零失误。</div>
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 游戏经济分析专业</div>
+                    <div class="accordion-header" onclick="toggleAccordion(this)">3. 游戏经济分析 <span class="arrow">▼</span></div>
                     <div class="accordion-body">研究藏宝阁物价与摊位行情，学会低买高卖与30分钟极速跑商掌控经济。</div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">4. 阵法与活动策划专业</div>
-                    <div class="accordion-body">背熟天覆/鸟翔等阵法加成克制，优化师门抓鬼流程与节日活动设计。</div>
-                </div>
-                <div style="font-size: 12px; font-weight: bold; margin: 12px 0 6px;">入院必考考核：</div>
-                <div class="exam-tags">
-                    <span class="exam-tag">20轮师门极速</span>
-                    <span class="exam-tag">抓鬼效率计算</span>
-                    <span class="exam-tag">12门派克制循环</span>
-                    <span class="exam-tag">手绘跑商路线</span>
-                    <span class="exam-tag">合宠资质预判</span>
+                <div class="exam-section" style="margin-top: 14px;">
+                    <div class="exam-title" style="font-size: 14px;">🏅 入院必考考核</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;">
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">20轮师门极速</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">抓鬼效率计算</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">12门派克制循环</span>
+                        <span style="background:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; border:2px solid var(--egg-yellow);">手绘跑商路线</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 全套教学视频库 -->
-        <div class="card" style="background: linear-gradient(180deg, #182030 0%, #141822 100%);">
-            <div class="card-title" style="border-color: var(--cyan);">全网专属教学视频体系</div>
-            <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 10px;">
-                所有录取学员均可免费解锁内部专属教学视频库，零基础在家就能学，照着练稳考全国前30%！
+        <!-- ===== 教学视频库 ===== -->
+        <div class="card" style="background: linear-gradient(135deg, #FFF8E7, #FFEED9); border-color: var(--egg-yellow);">
+            <div class="card-title" style="border-color: var(--egg-blue);">
+                📺 全网专属教学视频
+                <span class="emoji-badge">🎬</span>
+            </div>
+            <p style="font-size: 13px; color: var(--egg-text-light); margin-bottom: 10px;">
+                🎯 所有录取学员均可免费解锁内部专属教学视频库，零基础在家就能学！
             </p>
             <ul class="welfare-list">
-                <li><strong style="color:#fff;">通用指南：</strong>天才入学流程、学业平衡技巧、30元基金领取规程。</li>
-                <li><strong style="color:#fff;">学院专属：</strong>蛋仔地图搭设/剪辑、第五心理博弈、永劫0.3s振刀拆解、阴阳师顶配御魂计算、梦幻极速跑商教程。</li>
-                <li><strong style="color:#fff;">考核演示：</strong>所有考核项目均配套满分慢动作示范视频，永久更新免费观看。</li>
+                <li><strong style="color:var(--egg-text-dark);">📚 通用指南：</strong>天才入学流程、学业平衡技巧、30元基金领取规程</li>
+                <li><strong style="color:var(--egg-text-dark);">🎮 学院专属：</strong>蛋仔地图搭设、第五心理博弈、永劫0.3s振刀、阴阳师御魂计算、梦幻极速跑商</li>
+                <li><strong style="color:var(--egg-text-dark);">🏅 考核演示：</strong>所有考核项目配套满分慢动作示范视频，永久更新免费观看</li>
             </ul>
         </div>
 
-        <div style="text-align: center; color: var(--text-sub); font-size: 11px; padding: 20px 0;">
-            网易游戏科技大学招生办公室 版权所有<br>
-            校址：杭州市滨江区网商路599号网易大厦
+        <!-- ============================================================ -->
+        <!-- ===== 新增：底部六大链接 ===== -->
+        <!-- ============================================================ -->
+        <div class="link-section">
+            <div class="link-title">
+                <span class="icon">📂</span> 考生资料中心
+            </div>
+            <div class="link-grid">
+
+                <!-- 1. 报名表（真实可下载） -->
+                <a href="files/报名表.pdf" class="link-btn" target="_blank">
+                    <span class="link-emoji">📄</span>
+                    <span class="link-label">📝 报名表下载</span>
+                    <span class="link-badge green">✅ 可下载</span>
+                </a>
+
+                <!-- 2. 蛋仔派对学院摸底考试题（真实） -->
+                <a href="files/蛋仔派对学院摸底考试题.pdf" class="link-btn" target="_blank">
+                    <span class="link-emoji">🥚</span>
+                    <span class="link-label">蛋仔派对 · 摸底真题</span>
+                    <span class="link-badge green">✅ 可查看</span>
+                </a>
+
+                <!-- 3. 第五人格学院考试题（网络错误） -->
+                <a href="javascript:void(0)" class="link-btn" onclick="showError('第五人格学院')">
+                    <span class="link-emoji">🕵️</span>
+                    <span class="link-label">第五人格 · 摸底真题</span>
+                    <span class="link-badge gray">⚠️ 网络错误</span>
+                </a>
+
+                <!-- 4. 永劫无间学院考试题（网络错误） -->
+                <a href="javascript:void(0)" class="link-btn" onclick="showError('永劫无间学院')">
+                    <span class="link-emoji">⚔️</span>
+                    <span class="link-label">永劫无间 · 摸底真题</span>
+                    <span class="link-badge gray">⚠️ 网络错误</span>
+                </a>
+
+                <!-- 5. 阴阳师学院考试题（网络错误） -->
+                <a href="javascript:void(0)" class="link-btn" onclick="showError('阴阳师学院')">
+                    <span class="link-emoji">🦊</span>
+                    <span class="link-label">阴阳师 · 摸底真题</span>
+                    <span class="link-badge gray">⚠️ 网络错误</span>
+                </a>
+
+                <!-- 6. 梦幻西游学院考试题（网络错误） -->
+                <a href="javascript:void(0)" class="link-btn" onclick="showError('梦幻西游学院')">
+                    <span class="link-emoji">🐉</span>
+                    <span class="link-label">梦幻西游 · 摸底真题</span>
+                    <span class="link-badge gray">⚠️ 网络错误</span>
+                </a>
+
+            </div>
+            <div style="text-align: center; font-size: 11px; color: var(--egg-text-light); margin-top: 12px; border-top: 1px dashed #F0E0D0; padding-top: 10px;">
+                💡 点击 <span style="color: var(--egg-green); font-weight:700;">绿色标签</span> 可正常打开 · <span style="color:#999; font-weight:700;">灰色标签</span> 为系统维护中
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ===== 招生老师信息 ===== -->
+        <!-- ============================================================ -->
+        <div class="teacher-section">
+            <div class="teacher-title">
+                📞 招生办 · 官方咨询老师
+            </div>
+            <div class="teacher-item">
+                <span class="label">👨‍🏫 胡老师：</span>
+                <span class="phone">17607113829</span>
+            </div>
+            <div class="teacher-item">
+                <span class="label">👩‍🏫 徐老师：</span>
+                <span class="phone">13504253082</span>
+            </div>
+            <div style="font-size: 11px; color: var(--egg-text-light); margin-top: 6px; border-top: 1px dashed #F0E0D0; padding-top: 6px;">
+                ⏰ 咨询时间：周一至周日 9:00 - 21:00
+            </div>
+        </div>
+
+        <!-- ===== 脚注 ===== -->
+        <div class="footer-note">
+            <span class="egg-icon">🥚</span> 网易游戏科技大学招生办公室 版权所有 <span class="egg-icon">🥚</span><br>
+            校址：杭州市滨江区网商路 599 号 网易大厦
         </div>
 
     </div>
 
-    <!-- 底部固定栏 -->
+    <!-- ===== 底部固定栏 ===== -->
     <div class="bottom-bar">
         <div class="price-info">
-            学费：<span>￥200</span> / 年<br>
-            入学即享：20,000元/年补贴 + 30元/周基金
+            <div>报名费 <span class="big-price">¥1</span></div>
+            <div class="sub">入学即享 20,000元/年 补贴 + 30元/周 基金</div>
         </div>
-        <button class="apply-btn" onclick="openModal()">立即锁定名额</button>
+        <button class="apply-btn" onclick="openModal()">🥚 立即锁定名额</button>
     </div>
 
-    <!-- 报名交互弹窗 -->
+    <!-- ===== 报名弹窗 ===== -->
     <div class="modal-overlay" id="modal">
         <div class="modal-card">
-            <h3>网易少年天才班资格预审</h3>
-            <p>请核对您的入学门槛条件：<br><br>
-            1. 小学生：语数两门总分是否 ＞120分？<br>
-            2. 初中生：八科总分是否 ＞540分？<br>
-            3. 是否能每周六日参加4小时线上特训？</p>
-            <div style="font-size: 11px; color: var(--gold); margin-bottom: 15px;">
-                系统识别：符合2026优先录取条件！
+            <span class="modal-emoji">🥚🎮</span>
+            <h3>网易少年天才班 · 资格预审</h3>
+            <p>
+                ✅ 请核对您的入学门槛条件：<br><br>
+                <strong>1.</strong> 小学生：语数两门总分 ＞ 120分？<br>
+                <strong>2.</strong> 初中生：八科总分 ＞ 540分？<br>
+                <strong>3.</strong> 是否能每周六日参加4小时线上特训？
+            </p>
+            <div style="font-size: 13px; color: var(--egg-orange); font-weight: 700; margin-bottom: 14px;">
+                🎉 系统识别：符合 2026 优先录取条件！
             </div>
-            <button class="modal-close" onclick="closeModal()">我已确认，交由哥哥/姐姐提交申请</button>
+            <button class="modal-close" onclick="closeModal()">✅ 我已确认，立即提交申请</button>
+        </div>
+    </div>
+
+    <!-- ===== 网络错误弹窗 ===== -->
+    <div class="error-modal" id="errorModal">
+        <div class="error-card">
+            <span class="error-emoji">🌐</span>
+            <h3>系统提示</h3>
+            <p id="errorText">该学院摸底考试题暂未开放，<br>请耐心等待系统维护完成。</p>
+            <span class="error-code">错误码：503 · 服务不可用</span>
+            <button class="error-close" onclick="closeError()">我知道了，稍后再试</button>
         </div>
     </div>
 
     <script>
-        // 倒计时逻辑
+        // ===== 倒计时 =====
         function updateCountdown() {
             const endDate = new Date('2026-09-10T23:59:59').getTime();
             const now = new Date().getTime();
@@ -712,13 +1270,13 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // 学院 Tab 切换
+        // ===== Tab 切换 =====
         function switchTab(index) {
             const btns = document.querySelectorAll('.tab-btn');
             const contents = document.querySelectorAll('.academy-content');
-            
+
             btns.forEach((btn, i) => {
-                if(i === index) {
+                if (i === index) {
                     btn.classList.add('active');
                     contents[i].classList.add('active');
                 } else {
@@ -728,13 +1286,13 @@
             });
         }
 
-        // 折叠面板切换
+        // ===== 折叠面板 =====
         function toggleAccordion(header) {
             const item = header.parentElement;
             item.classList.toggle('active');
         }
 
-        // 弹窗逻辑
+        // ===== 报名弹窗 =====
         function openModal() {
             document.getElementById('modal').style.display = 'flex';
         }
@@ -742,6 +1300,26 @@
         function closeModal() {
             document.getElementById('modal').style.display = 'none';
         }
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // ===== 网络错误弹窗 =====
+        function showError(collegeName) {
+            document.getElementById('errorText').innerHTML =
+                '「' + collegeName + '」摸底考试题暂未开放，<br>请耐心等待系统维护完成。';
+            document.getElementById('errorModal').style.display = 'flex';
+        }
+
+        function closeError() {
+            document.getElementById('errorModal').style.display = 'none';
+        }
+
+        document.getElementById('errorModal').addEventListener('click', function(e) {
+            if (e.target === this) closeError();
+        });
     </script>
+
 </body>
 </html>
