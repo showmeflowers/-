@@ -751,7 +751,13 @@
             cursor: pointer;
             width: 100%;
         }
-        
+
+         /* ===== 弹入动画 ===== */
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
         <!-- 背景音乐 -->
         <audio id="bgMusic" loop preload="auto">
@@ -776,6 +782,23 @@
         </div>
     </div>
 
+    <!-- ===== 点击播放音乐提示浮层 ===== -->
+    <div id="musicTip" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 30px; transition: opacity 0.5s;">
+        <div style="background: linear-gradient(135deg, #FFD93D, #FF8A1E); border-radius: 30px; padding: 40px 30px; max-width: 360px; width: 100%; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); animation: bounceIn 0.6s ease;">
+            <div style="font-size: 72px; display: block; margin-bottom: 10px;">🥚🎵</div>
+            <h2 style="color: #fff; font-size: 22px; font-weight: 900; margin-bottom: 8px;">点击屏幕播放音乐</h2>
+            <p style="color: rgba(255,255,255,0.85); font-size: 14px; margin-bottom: 16px; line-height: 1.6;">
+                点击页面任意位置，<br>开启蛋仔派对音乐之旅 🎮
+            </p>
+            <div style="background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px; margin-bottom: 6px;">
+                <span style="color: #fff; font-size: 13px;">🔊 点击后音乐自动播放</span>
+            </div>
+            <div style="margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.6);">
+                👆 点击任意处开始
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
 
         <!-- ===== 招生核心指标 ===== -->
@@ -1618,7 +1641,7 @@
         function initMusic() {
             if (musicReady) return;
             
-            // 尝试播放
+            // 播放音乐
             const playPromise = bgMusic.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
@@ -1626,13 +1649,20 @@
                     musicReady = true;
                     document.getElementById('musicIcon').textContent = '🔊';
                     console.log('🎵 音乐已自动播放');
+                    // 关闭提示浮层
+                    const tip = document.getElementById('musicTip');
+                    if (tip) {
+                        tip.style.opacity = '0';
+                        setTimeout(function() {
+                            tip.style.display = 'none';
+                        }, 500);
+                    }
                 }).catch((e) => {
                     console.log('⛔ 自动播放被阻止:', e);
-                    // 如果被阻止，等用户点击图标时再试
                 });
             }
         }
-        
+                
         // 监听用户首次触摸、滑动或点击（只触发一次）
         document.addEventListener('touchstart', initMusic, { once: true });
         document.addEventListener('touchmove', initMusic, { once: true });
