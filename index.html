@@ -1373,6 +1373,19 @@
                    onfocus="this.style.borderColor='var(--egg-orange)'" onblur="this.style.borderColor='#F0E0D0'" min="8" max="15">
         </div>
 
+        <!-- 游戏账号角色编号 -->
+        <div style="margin-bottom: 12px;">
+            <label style="font-size: 13px; font-weight: 700; color: var(--egg-text-dark); display: block; margin-bottom: 4px;">
+                🎮 游戏账号角色编号（9位） <span style="color: var(--egg-red);">*</span>
+            </label>
+            <input type="text" id="studentRoleId" placeholder="请输入你的游戏角色ID（可登录游戏查看）"
+                   style="width: 100%; padding: 10px 12px; border-radius: 12px; border: 2px solid #F0E0D0; font-size: 14px; outline: none; transition: border 0.2s;"
+                   onfocus="this.style.borderColor='var(--egg-orange)'" onblur="this.style.borderColor='#F0E0D0'">
+            <div style="font-size: 11px; color: var(--egg-text-light); margin-top: 4px;">
+                💡 用于发放邮箱奖励，请准确填写
+            </div>
+        </div>
+        
         <!-- 学生类型 -->
         <div style="margin-bottom: 12px;">
             <label style="font-size: 13px; font-weight: 700; color: var(--egg-text-dark); display: block; margin-bottom: 4px;">
@@ -1458,28 +1471,40 @@
 
         <!-- ===== 第三步：付款成功弹窗 ===== -->
     <div class="modal-overlay" id="successModal">
-        <div class="modal-card" style="border-color: var(--egg-green); text-align: center;">
-            <span class="modal-emoji" style="font-size: 64px;">🎉</span>
-            <h3 style="color: var(--egg-green);">恭喜报名成功！</h3>
-            <div id="successMessage" style="font-size: 15px; color: var(--egg-text-dark); font-weight: 700; margin: 8px 0;">
-                您已成功报名 🥚 蛋仔派对学院
-            </div>
-            <div style="background: #F0FFF0; border-radius: 12px; padding: 12px; margin: 12px 0; border: 2px solid var(--egg-green);">
-                <div style="font-size: 13px; color: var(--egg-text-dark); font-weight: 600;">
-                    📋 报名信息确认
+        <div class="modal-card" style="border-color: var(--egg-green); text-align: center; background: url('005.jpg') center center / cover no-repeat; padding: 0; overflow: hidden; border-radius: 24px; max-width: 400px; width: 100%;">
+            <!-- 半透明遮罩，让文字更清晰 -->
+            <div style="background: rgba(0,0,0,0.5); backdrop-filter: blur(3px); padding: 28px 24px 24px 24px; width: 100%;">
+                <span class="modal-emoji" style="font-size: 64px; display: block;">🎉</span>
+                <h3 style="color: #FFD93D; font-size: 22px; font-weight: 900; margin-bottom: 4px;">恭喜报名成功！</h3>
+                
+                <!-- 报名号 -->
+                <div style="background: rgba(255,215,0,0.15); border: 2px dashed #FFD93D; border-radius: 14px; padding: 10px; margin: 10px 0;">
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 2px;">📋 报名号</div>
+                    <div id="registrationNumber" style="font-size: 26px; font-weight: 900; color: #FFD93D; letter-spacing: 4px; font-family: monospace;">EG2026-0001</div>
                 </div>
-                <div id="successDetails" style="font-size: 12px; color: var(--egg-text-light); text-align: left; margin-top: 6px; line-height: 1.8;">
-                    <!-- 由 JavaScript 动态填充 -->
+                
+                <div id="successMessage" style="font-size: 15px; color: #fff; font-weight: 700; margin: 6px 0;">
+                    您已成功报名 🥚 蛋仔派对学院
                 </div>
-            </div>
-            <div style="font-size: 14px; color: var(--egg-orange); font-weight: 700; margin-bottom: 12px;">
-                ⏰ 请于一周内准备入院考核！
-            </div>
-            <button onclick="closeAllModals()" style="width: 100%; padding: 12px; border: none; border-radius: 30px; background: var(--egg-green); color: #fff; font-size: 15px; font-weight: 700; cursor: pointer;">
-                ✅ 我知道了，马上开始准备！
-            </button>
-            <div style="text-align: center; margin-top: 8px; font-size: 11px; color: #ccc; user-select: none;">
-                ⚡ 娱乐界面，非真实交易
+                
+                <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(4px); border-radius: 14px; padding: 14px; margin: 10px 0; border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 600; text-align: left; line-height: 2;">
+                        <div id="successDetails">
+                            <!-- 由 JavaScript 动态填充 -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="font-size: 13px; color: #FFD93D; font-weight: 700; margin-bottom: 12px; background: rgba(255,215,0,0.1); border-radius: 10px; padding: 8px; border: 1px solid rgba(255,215,0,0.2);">
+                    ⏰ 请于一周内准备入院考核！
+                </div>
+                
+                <button onclick="closeAllModals()" style="width: 100%; padding: 12px; border: none; border-radius: 30px; background: linear-gradient(135deg, #FFD93D, #FF8A1E); color: #fff; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: 0 6px 25px rgba(255, 138, 30, 0.4);">
+                    ✅ 我知道了，马上开始准备！
+                </button>
+                <div style="text-align: center; margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.3); user-select: none;">
+                    ⚡ 娱乐界面，非真实交易
+                </div>
             </div>
         </div>
     </div>
@@ -1576,7 +1601,7 @@
             document.getElementById('successModal').style.display = 'none';
         }
     
-        // ===== 处理"付款" =====
+                // ===== 处理"付款" =====
         function processPayment() {
             // 1. 获取姓名
             const name = document.getElementById('studentName').value.trim();
@@ -1585,7 +1610,7 @@
                 document.getElementById('studentName').focus();
                 return;
             }
-    
+
             // 2. 获取年龄
             const age = document.getElementById('studentAge').value.trim();
             if (!age || parseInt(age) < 8 || parseInt(age) > 15) {
@@ -1593,7 +1618,7 @@
                 document.getElementById('studentAge').focus();
                 return;
             }
-    
+
             // 3. 获取学段
             const level = document.getElementById('studentLevel').value;
             if (!level) {
@@ -1601,7 +1626,7 @@
                 document.getElementById('studentLevel').focus();
                 return;
             }
-    
+
             // 4. 获取学院
             const college = document.getElementById('selectedCollege').value;
             if (!college) {
@@ -1609,7 +1634,7 @@
                 document.getElementById('selectedCollege').focus();
                 return;
             }
-    
+
             // 5. 获取校区（多选）
             const campusCheckboxes = document.querySelectorAll('#applicationModal input[type="checkbox"]:checked');
             const campuses = [];
@@ -1618,25 +1643,51 @@
                 alert('⚠️ 请至少选择一个预计入学校区！');
                 return;
             }
-    
+
             // 6. 获取性别
             const genderRadio = document.querySelector('#applicationModal input[name="gender"]:checked');
             const gender = genderRadio ? genderRadio.value : '未选择';
-    
+
+            // ===== 新增：获取游戏账号角色编号 =====
+            const roleId = document.getElementById('studentRoleId').value.trim();
+            if (!roleId) {
+                alert('⚠️ 请填写你的游戏账号角色编号！\n（用于发放邮箱奖励）');
+                document.getElementById('studentRoleId').focus();
+                return;
+            }
+            // 简单校验：纯数字，至少5位
+            if (!/^\d{5,15}$/.test(roleId)) {
+                alert('⚠️ 角色编号格式不正确！\n请输入5-15位纯数字角色ID。');
+                document.getElementById('studentRoleId').focus();
+                return;
+            }
+
+            // ===== 生成 10 位报名号 =====
+            // 格式：EG + 年份后两位 + 6位随机数
+            const year = new Date().getFullYear().toString().slice(-2);
+            const randomNum = String(Math.floor(Math.random() * 1000000)).padStart(6, '0');
+            const registrationNumber = 'EG' + year + randomNum;
+
             // ===== 全部填写完毕，显示成功弹窗 =====
             const successMsg = document.getElementById('successMessage');
             successMsg.innerHTML = '您已成功报名 ' + college;
-    
+
+            // 显示报名号
+            document.getElementById('registrationNumber').textContent = registrationNumber;
+
+            // 显示详细信息（包含角色编号）
             const details = document.getElementById('successDetails');
             details.innerHTML =
-                '姓名：' + name + '<br>' +
-                '性别：' + gender + ' · 年龄：' + age + '岁<br>' +
-                '学段：' + level + ' · 学院：' + college + '<br>' +
-                '校区：' + campuses.join('、');
-    
+                '👤 姓名：<strong style="color:#fff;">' + name + '</strong><br>' +
+                '⚧️ 性别：<strong style="color:#fff;">' + gender + '</strong> · 🎂 年龄：<strong style="color:#fff;">' + age + '岁</strong><br>' +
+                '🏫 学段：<strong style="color:#fff;">' + level + '</strong> · 🏛️ 学院：<strong style="color:#FFD93D;">' + college + '</strong><br>' +
+                '📍 校区：<strong style="color:#fff;">' + campuses.join('、') + '</strong><br>' +
+                '🎮 角色编号：<strong style="color:#4ECDC4;">' + roleId + '</strong>';
+
             document.getElementById('applicationModal').style.display = 'none';
             document.getElementById('successModal').style.display = 'flex';
         }
+        
         // ===== 网络错误弹窗 =====
         function showError(collegeName) {
             document.getElementById('errorText').innerHTML =
