@@ -1149,12 +1149,15 @@
 
         <!-- ===== 福利图片 ===== -->
         <a href="https://party.163.com/2026/qgzjs/" target="_blank" style="display: block; text-decoration: none; margin-bottom: 14px;">
-            <div style="background: url('002.jpg') center center / cover no-repeat; border-radius: 20px; min-height: 150px; padding: 20px; position: relative; border: 3px solid var(--egg-yellow); box-shadow: 0 8px 30px rgba(255, 138, 30, 0.15); display: flex; align-items: flex-end; justify-content: center;">
-                <div style="background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); border-radius: 12px; padding: 10px 16px; text-align: center; color: #fff; width: 100%;">
-                    <div style="font-size: 16px; font-weight: 800; color: #FFD93D;">🏆 报名即获重磅福利 🏆</div>
-                    <div style="font-size: 13px; color: #fff; margin-top: 2px;">🎫 2027年6月 蛋仔派对全国总决赛 · 观赛/参赛资格</div>
-                    <div style="font-size: 11px; color: #FFD93D; margin-top: 4px;">👆 点击图片查看总决赛详情</div>
+            <div style="border-radius: 20px; overflow: hidden; border: 3px solid var(--egg-yellow); box-shadow: 0 8px 30px rgba(255, 138, 30, 0.15); background: #fff;">
+                <!-- 文字说明放在图片上方 -->
+                <div style="background: linear-gradient(135deg, #FF8A1E, #FF6B8A); padding: 12px 16px; text-align: center;">
+                    <div style="font-size: 16px; font-weight: 800; color: #FFD93D;">🏆 报名即获邀请函福利 🏆</div>
+                    <div style="font-size: 13px; color: #fff; margin-top: 2px;">🎫 2027年6月 蛋仔派对全国总决赛 · 观赛/参赛邀请资格</div>
+                    <div style="font-size: 11px; color: #FFD93D; margin-top: 4px;"> 点击图片查看总决赛详情</div>
                 </div>
+                <!-- 图片区域 -->
+                <div style="background: url('002.jpg') center center / cover no-repeat; min-height: 180px; width: 100%;"></div>
             </div>
         </a>
         
@@ -1185,28 +1188,28 @@
                 <a href="javascript:void(0)" class="link-btn" onclick="showError('第五人格学院')">
                     <span class="link-emoji">🕵️</span>
                     <span class="link-label">第五人格 · 摸底真题</span>
-                    <span class="link-badge gray">✅ 下载</span>
+                    <span class="link-badge green">✅ 下载</span>
                 </a>
 
                 <!-- 4. 永劫无间学院考试题（网络错误） -->
                 <a href="javascript:void(0)" class="link-btn" onclick="showError('永劫无间学院')">
                     <span class="link-emoji">⚔️</span>
                     <span class="link-label">永劫无间 · 摸底真题</span>
-                    <span class="link-badge gray">✅ 下载</span>
+                    <span class="link-badge green">✅ 下载</span>
                 </a>
 
                 <!-- 5. 阴阳师学院考试题（网络错误） -->
                 <a href="javascript:void(0)" class="link-btn" onclick="showError('阴阳师学院')">
                     <span class="link-emoji">🦊</span>
                     <span class="link-label">阴阳师 · 摸底真题</span>
-                    <span class="link-badge gray">✅ 下载</span>
+                    <span class="link-badge green">✅ 下载</span>
                 </a>
 
                 <!-- 6. 梦幻西游学院考试题（网络错误） -->
                 <a href="javascript:void(0)" class="link-btn" onclick="showError('梦幻西游学院')">
                     <span class="link-emoji">🐉</span>
                     <span class="link-label">梦幻西游 · 摸底真题</span>
-                    <span class="link-badge gray">✅ 下载</span>
+                    <span class="link-badge green">✅ 下载</span>
                 </a>
 
             </div>
@@ -1248,14 +1251,16 @@
             <span id="musicIcon" style="font-size: 26px; user-select: none;">🔊</span>
         </div>
     
-    <!-- ===== 底部固定栏 ===== -->
-    <div class="bottom-bar">
-        <div class="price-info">
-            <div>报名费 <span class="big-price">¥1</span></div>
-            <div class="sub">入学即享 20,000元/年 补贴 + 200元/周 基金</div>
+        <!-- ===== 底部固定栏 ===== -->
+        <div class="bottom-bar">
+            <div class="price-info">
+                <div>报名费 <span class="big-price">¥1</span></div>
+                <div class="sub" id="registerCount" style="font-weight: 700; color: var(--egg-orange);">
+                    🥚 已报名 <span id="countNum">0</span> 人 （注意：请在监护人同意下理性报名）
+                </div>
+            </div>
+            <button class="apply-btn" onclick="openModal()">🥚 立即锁定名额</button>
         </div>
-        <button class="apply-btn" onclick="openModal()">🥚 立即锁定名额</button>
-    </div>
 
     <!-- ===== 报名弹窗 - 第一步：资格预审 ===== -->
 <div class="modal-overlay" id="modal">
@@ -1267,6 +1272,7 @@
             <strong>1.</strong> 小学生：语数两门总分 ＞ 120分？<br>
             <strong>2.</strong> 初中生：八科总分 ＞ 540分？<br>
             <strong>3.</strong> 是否能每周六日参加4小时线上特训？
+            <strong>4.</strong> 您报名时是否经过监护人同意？
         </p>
         <div style="font-size: 13px; color: var(--egg-orange); font-weight: 700; margin-bottom: 14px;">
             🎉 系统识别：符合 2026 优先录取条件！
@@ -1459,7 +1465,22 @@
         }
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
+        
+        // ===== 已报名人数动态变化 =====
+        function updateRegisterCount() {
+            const baseCount = 31678;  // 基础人数
+            const elapsed = (Date.now() - new Date('2026-08-24T00:00:00').getTime()) / 1000; // 已过秒数
+            const randomOffset = Math.floor(Math.random() * 50) + 10; // 每次随机增加 10-60 人
+            const count = baseCount + Math.floor(elapsed / 30) + randomOffset; // 每30秒涨一波
+            document.getElementById('countNum').textContent = count.toLocaleString();
+        }
+        
+        // 立即执行一次
+        updateRegisterCount();
+        
+        // 每 3-5 秒随机更新一次
+        setInterval(updateRegisterCount, 3000 + Math.random() * 2000);
+        
         // ===== Tab 切换 =====
         function switchTab(index) {
             const btns = document.querySelectorAll('.tab-btn');
@@ -1604,10 +1625,11 @@
             });
         }
     
-        // 监听用户首次触摸或点击
+        // 监听用户首次触摸、滑动或点击
         document.addEventListener('touchstart', initMusic, { once: true });
+        document.addEventListener('touchmove', initMusic, { once: true });
         document.addEventListener('click', initMusic, { once: true });
-    
+            
         // 点击图标 = 暂停/继续切换
         function toggleMusic() {
             if (!musicReady) {
