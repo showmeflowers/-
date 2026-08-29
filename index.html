@@ -39,12 +39,13 @@
 
         /* ===== 顶部Banner ===== */
         .hero {
-            background: linear-gradient(135deg, #FFD93D 0%, #FF8A1E 50%, #FF6B8A 100%);
+            background: url('001.jpg') center center / cover no-repeat;
             padding: 30px 20px 25px;
             text-align: center;
             border-bottom: 6px solid #fff;
             position: relative;
             overflow: hidden;
+            min-height: 200px;
         }
 
         .hero::before {
@@ -1124,12 +1125,32 @@
                 🎯 所有录取学员均可免费解锁内部专属教学视频库，零基础在家就能学！
             </p>
             <ul class="welfare-list">
-                <li><strong style="color:var(--egg-text-dark);">📚 通用指南：</strong>天才入学流程、学业平衡技巧、30元基金领取规程</li>
-                <li><strong style="color:var(--egg-text-dark);">🎮 学院专属：</strong>蛋仔地图搭设、第五心理博弈、永劫0.3s振刀、阴阳师御魂计算、梦幻极速跑商</li>
-                <li><strong style="color:var(--egg-text-dark);">🏅 考核演示：</strong>所有考核项目配套满分慢动作示范视频，永久更新免费观看</li>
+                <li>
+                    <strong style="color:var(--egg-text-dark);">📚 通用指南：</strong>天才入学流程、学业平衡技巧、30元基金领取规程
+                    <a href="https://ugc.163.com/" target="_blank" style="color: var(--egg-orange); font-weight: 700; text-decoration: none; font-size: 12px; display: inline-block; margin-left: 4px;">→ 前往学习</a>
+                </li>
+                <li>
+                    <strong style="color:var(--egg-text-dark);">🎮 学院专属：</strong>蛋仔地图搭设、第五心理博弈、永劫0.3s振刀、阴阳师御魂计算、梦幻极速跑商
+                    <a href="https://ugc.163.com/" target="_blank" style="color: var(--egg-orange); font-weight: 700; text-decoration: none; font-size: 12px; display: inline-block; margin-left: 4px;">→ 前往学习</a>
+                </li>
+                <li>
+                    <strong style="color:var(--egg-text-dark);">🏅 考核演示：</strong>所有考核项目配套满分慢动作示范视频，永久更新免费观看
+                    <a href="https://ugc.163.com/" target="_blank" style="color: var(--egg-orange); font-weight: 700; text-decoration: none; font-size: 12px; display: inline-block; margin-left: 4px;">→ 前往学习</a>
+                </li>
             </ul>
         </div>
 
+        <!-- ===== 福利图片 ===== -->
+        <a href="https://party.163.com/2026/qgzjs/" target="_blank" style="display: block; text-decoration: none; margin-bottom: 14px;">
+            <div style="background: url('002.jpg') center center / cover no-repeat; border-radius: 20px; min-height: 150px; padding: 20px; position: relative; border: 3px solid var(--egg-yellow); box-shadow: 0 8px 30px rgba(255, 138, 30, 0.15); display: flex; align-items: flex-end; justify-content: center;">
+                <div style="background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); border-radius: 12px; padding: 10px 16px; text-align: center; color: #fff; width: 100%;">
+                    <div style="font-size: 16px; font-weight: 800; color: #FFD93D;">🏆 报名即获重磅福利 🏆</div>
+                    <div style="font-size: 13px; color: #fff; margin-top: 2px;">🎫 2027年6月 蛋仔派对全国总决赛 · 观赛/参赛资格</div>
+                    <div style="font-size: 11px; color: #FFD93D; margin-top: 4px;">👆 点击图片查看总决赛详情</div>
+                </div>
+            </div>
+        </a>
+        
         <!-- ============================================================ -->
         <!-- ===== 新增：底部六大链接 ===== -->
         <!-- ============================================================ -->
@@ -1214,7 +1235,15 @@
         </div>
 
     </div>
-
+    <!-- ===== 音乐控制按钮 ===== -->
+    <div style="position: fixed; bottom: 100px; right: 16px; z-index: 99; background: rgba(255,255,255,0.95); border-radius: 30px; padding: 10px 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 2px solid var(--egg-yellow); display: flex; align-items: center; gap: 8px;">
+        <button onclick="toggleMusic()" style="background: none; border: none; font-size: 24px; cursor: pointer; padding: 0;">
+            <span id="musicIcon">🔊</span>
+        </button>
+        <input type="range" min="0" max="100" value="70" onchange="changeVolume(this.value)" style="width: 60px; height: 4px; -webkit-appearance: none; background: var(--egg-orange); border-radius: 2px; outline: none;">
+        <span id="musicStatus" style="font-size: 10px; color: var(--egg-text-light); min-width: 50px;">音乐已开启</span>
+    </div>
+    
     <!-- ===== 底部固定栏 ===== -->
     <div class="bottom-bar">
         <div class="price-info">
@@ -1549,6 +1578,36 @@
         document.getElementById('errorModal').addEventListener('click', function(e) {
             if (e.target === this) closeError();
         });
+        
+        // ===== 背景音乐控制 =====
+        const bgMusic = document.getElementById('bgMusic');
+        let musicPlaying = false;
+        
+        // 用户点击页面任意位置时开始播放（因为浏览器策略限制）
+        document.addEventListener('click', function() {
+            if (!musicPlaying) {
+                bgMusic.play().catch(function(e) {
+                    console.log('自动播放被阻止，需要用户交互');
+                });
+                musicPlaying = true;
+            }
+        }, { once: true });
+        
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                document.getElementById('musicIcon').textContent = '🔊';
+                document.getElementById('musicStatus').textContent = '音乐已开启';
+            } else {
+                bgMusic.pause();
+                document.getElementById('musicIcon').textContent = '🔇';
+                document.getElementById('musicStatus').textContent = '音乐已关闭';
+            }
+        }
+        
+        function changeVolume(val) {
+            bgMusic.volume = val / 100;
+        }
     </script>
 
 </body>
